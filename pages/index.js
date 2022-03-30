@@ -1,0 +1,46 @@
+import Layout from "../components/Layout/layout"
+import Head from "next/head"
+import unfetch from "isomorphic-unfetch"
+import Link from "next/Link"
+import slug from "slug"
+import styles from "../pages/index.module.css"
+
+function HomePage({ characters }) {
+  return (
+    <Layout>
+      <Head>
+        <title>Rick and Morty | Character List</title>
+      </Head>
+
+      <div className={styles.cardContainer}>
+        {characters.results.map((character) => (
+          <div className={styles.card}>
+            <div className={styles.absolute}>
+              <Link href={`/character/${slug(character.name)}-${character.id}`}>
+                <h3 className={styles.name}>{character.name}</h3>
+              </Link>
+              <Link href={`/character/${slug(character.name)}-${character.id}`}>
+                <div className={styles.cursor}>
+                  <img src={character.image} alt={character.name} />
+                </div>
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Layout>
+  )
+}
+
+export async function getStaticProps() {
+  const data = await unfetch("https://rickandmortyapi.com/api/character/")
+
+  const characters = await data.json()
+  return {
+    props: {
+      characters
+    }
+  }
+}
+
+export default HomePage

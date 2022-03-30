@@ -1,0 +1,26 @@
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+
+
+}
+
+
+.card {
+    padding: 10px;
+}
+
+
+.name {
+    font-size: 20px;
+    cursor: pointer;
+    width: 97%;
+
+}
+
+.cursor img {
+    cursor: pointer;
+    width: 100%;
+}
