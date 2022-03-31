@@ -1,7 +1,7 @@
 import Layout from "../components/Layout/layout"
 import Head from "next/head"
 import unfetch from "isomorphic-unfetch"
-import Link from "next/Link"
+import Link from "next/link"
 import slug from "slug"
 import styles from "../pages/index.module.css"
 
