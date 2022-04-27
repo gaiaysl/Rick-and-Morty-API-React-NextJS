@@ -1,6 +1,5 @@
 import Layout from "../../components/Layout/layout"
 import Head from "next/head"
-import unfetch from "isomorphic-unfetch"
 import slug from "slug"
 import styles from "../character/slug.module.css"
 
@@ -53,7 +52,7 @@ function CharacterDetail({ character }) {
 }
 
 export async function getStaticPaths() {
-  const data = await unfetch("https://rickandmortyapi.com/api/character/")
+  const data = await fetch("https://rickandmortyapi.com/api/character/")
 
   const characters = await data.json()
 
@@ -61,7 +60,7 @@ export async function getStaticPaths() {
     paths: characters.results.map((character) => {
       return { params: { slug: `${slug(character.name)}-${character.id}` } }
     }),
-    fallback: false // See the "fallback" section below
+    fallback: false 
   }
 }
 
@@ -69,7 +68,7 @@ export async function getStaticProps({ params }) {
   //dataları çekiyoruz.
 
   const id = params.slug.split("-").slice(-1)[0]
-  const data = await unfetch("https://rickandmortyapi.com/api/character/" + id)
+  const data = await fetch("https://rickandmortyapi.com/api/character/" + id)
 
   const character = await data.json()
   return {
