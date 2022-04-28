@@ -2,7 +2,7 @@ import styles from "./yon.module.css"
 import Image from "next/image"
 import logo from "../../public/pm-logo.png"
 
-function Yonlendir() {
+export default function Yonlendir() {
   return (
     <div className={styles.navContainer}>
       <div className={styles.leftNav}>
@@ -36,4 +36,4 @@ function Yonlendir() {
   )
 }
 
-export default Yonlendir
+
