@@ -1,11 +1,11 @@
 import Layout from "../components/Layout/layout"
 import Head from "next/head"
-
 import Link from "next/link"
 import slug from "slug"
 import styles from "../pages/index.module.css"
 
-function HomePage({ characters }) {
+
+export default function HomePage({ characters }) {
   return (
     <Layout>
       <Head>
@@ -13,6 +13,7 @@ function HomePage({ characters }) {
       </Head>
 
       <div className={styles.cardContainer}>
+  
         {characters.results.map((character) => (
           <div className={styles.card}>
             <div className={styles.absolute}>
@@ -43,4 +44,3 @@ export async function getStaticProps() {
   }
 }
 
-export default HomePage
