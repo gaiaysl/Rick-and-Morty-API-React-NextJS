@@ -10,6 +10,7 @@ function CharacterDetail({ character }) {
         <title>{character.name} Details..</title>
       </Head>
       <body>
+        <div  className={styles.deneme}>
         <div className={styles.container}>
           <div className={styles.containerOne}>
             <h1 className={styles.titleOne}>{character.name}</h1>
@@ -45,6 +46,7 @@ function CharacterDetail({ character }) {
               </p>
             </div>
           </div>
+        </div>
         </div>
       </body>
     </Layout>
