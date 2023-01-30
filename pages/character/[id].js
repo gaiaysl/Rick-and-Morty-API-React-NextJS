@@ -3,13 +3,14 @@ import Head from "next/head"
 import slug from "slug"
 import styles from "../character/slug.module.css"
 
-function CharacterDetail({ character }) {
+export default function CharacterDetail({ character }) {
+  console.log("karakter göster",character)
   return (
     <Layout>
       <Head>
         <title>{character.name} Details..</title>
       </Head>
-      <body>
+      <main>
         <div  className={styles.deneme}>
         <div className={styles.container}>
           <div className={styles.containerOne}>
@@ -26,7 +27,7 @@ function CharacterDetail({ character }) {
               <div className={styles.line}></div>
             </div>
             <div className={styles.containerFour}>
-              <p>
+              <p  key={character.id}>
                 <span>ID:</span> {character.id}
               </p>
               <p>
@@ -48,12 +49,28 @@ function CharacterDetail({ character }) {
           </div>
         </div>
         </div>
-      </body>
+      </main>
     </Layout>
   )
 }
 
-export async function getStaticPaths() {
+export async function getServerSideProps(context){
+ 
+  const{params}=context
+  const {id}=params
+  const res = await fetch(`https://rickandmortyapi.com/api/character/${id}`)
+ const character = await res.json()
+ return{
+  props:{
+    character,
+    
+  }
+  
+ }
+
+}
+
+/*export async function getStaticPaths() {
   const data = await fetch("https://rickandmortyapi.com/api/character/")
 
   const characters = await data.json()
@@ -70,7 +87,7 @@ export async function getStaticProps({ params }) {
   //dataları çekiyoruz.
 
   const id = params.slug.split("-").slice(-1)[0]
-  const data = await fetch("https://rickandmortyapi.com/api/character/" + id)
+  const data = await fetch("" + id)
 
   const character = await data.json()
   return {
@@ -79,5 +96,5 @@ export async function getStaticProps({ params }) {
     }
   }
 }
+*/
 
-export default CharacterDetail

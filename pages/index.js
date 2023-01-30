@@ -17,10 +17,12 @@ export default function HomePage({ characters }) {
         {characters.results.map((character) => (
           <div className={styles.card}>
             <div className={styles.absolute}>
-              <Link href={`/character/${slug(character.name)}-${character.id}`}>
+              <Link  key={character.id}
+                      href={`/character/${character.id}`}>
                 <h3 className={styles.name}>{character.name}</h3>
               </Link>
-              <Link href={`/character/${slug(character.name)}-${character.id}`}>
+              <Link key={character.id}
+                      href={`/character/${character.id}`}>
                 <div className={styles.cursor}>
                   <img src={character.image} alt={character.name} />
                 </div>
@@ -33,14 +35,15 @@ export default function HomePage({ characters }) {
   )
 }
 
-export async function getStaticProps() {
-  const data = await fetch("https://rickandmortyapi.com/api/character/")
+export async function getServerSideProps(){
 
+  const data = await fetch("https://rickandmortyapi.com/api/character/")
   const characters = await data.json()
-  return {
-    props: {
+  return{
+    props:{
       characters
     }
   }
+ 
 }
 
