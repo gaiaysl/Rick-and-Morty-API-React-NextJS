@@ -1,100 +1,58 @@
-import Layout from "../../components/Layout/layout"
-import Head from "next/head"
-import slug from "slug"
-import styles from "../character/slug.module.css"
+import Head from "next/head";
+import { useEffect, useState } from "react";
+import Link from 'next/link'
 
-export default function CharacterDetail({ character }) {
-  console.log("karakter göster",character)
-  return (
-    <Layout>
-      <Head>
-        <title>{character.name} Details..</title>
-      </Head>
-      <main>
-        <div  className={styles.deneme}>
-        <div className={styles.container}>
-          <div className={styles.containerOne}>
-            <h1 className={styles.titleOne}>{character.name}</h1>
-            <figure>
-              <img src={character.image} alt={character.name} />
-            </figure>
-          </div>
 
-          <div className={styles.containerThree}>
-            <div className={styles.underline}>
-              <div className={styles.line}></div>
-              <div className={styles.or}>FEATURES;</div>
-              <div className={styles.line}></div>
-            </div>
-            <div className={styles.containerFour}>
-              <p  key={character.id}>
-                <span>ID:</span> {character.id}
-              </p>
-              <p>
-                <span>Gender:</span> {character.gender}
-              </p>
-              <p>
-                <span>Species:</span> {character.species}
-              </p>
-              <p>
-                <span>Status:</span> {character.status}
-              </p>
-              <p>
-                <span>Location:</span> {character.location.name}
-              </p>
-              <p>
-                <span>Origin:</span> {character.origin.name}
-              </p>
-            </div>
-          </div>
-        </div>
-        </div>
-      </main>
-    </Layout>
-  )
-}
+const defaultEndOPoint = "https://rickandmortyapi.com/api/character";
 
-export async function getServerSideProps(context){
- 
-  const{params}=context
-  const {id}=params
-  const res = await fetch(`https://rickandmortyapi.com/api/character/${id}`)
- const character = await res.json()
- return{
-  props:{
-    character,
-    
-  }
-  
- }
-
-}
-
-/*export async function getStaticPaths() {
-  const data = await fetch("https://rickandmortyapi.com/api/character/")
-
-  const characters = await data.json()
-
-  return {
-    paths: characters.results.map((character) => {
-      return { params: { slug: `${slug(character.name)}-${character.id}` } }
-    }),
-    fallback: false 
-  }
-}
-
-export async function getStaticProps({ params }) {
-  //dataları çekiyoruz.
-
-  const id = params.slug.split("-").slice(-1)[0]
-  const data = await fetch("" + id)
-
-  const character = await data.json()
+export async function getServerSideProps({ query }) {
+  const { id } = query;
+  const res = await fetch(`${defaultEndOPoint}/${id}`);
+  const data = await res.json();
   return {
     props: {
-      character
-    }
-  }
+      data,
+    },
+  };
 }
-*/
 
+export default function Home({ data }) {
+  const {name, image, gender, location, origin, species, status } = data
+
+  return (
+    <div >
+      <Head>
+        <title>{name}</title>
+        <meta name="description" content="The Rick and Morty all character" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <main >
+        <h1 >{name}</h1>
+
+        <div >
+            <div >
+                <img src={image} alt={name} />
+            </div>
+
+            <div >
+                <h2>Character Details</h2>
+                <ul>
+                    <li><strong>Name:</strong> {name}</li>
+                    <li><strong>Status:</strong> {status}</li>
+                    <li><strong>Gender:</strong> {gender}</li>
+                    <li><strong>Species:</strong> {species}</li>
+                    <li><strong>Location:</strong> {location?.name}</li>
+                    <li><strong>Originally From:</strong> {origin?.name}</li>
+                </ul>
+            </div>
+        </div>
+        <p >
+          <Link href="/">
+            <a> Back to HomePage</a>
+          </Link>
+        </p>
+      </main>
+    </div>
+  );
+}
