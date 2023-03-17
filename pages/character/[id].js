@@ -20,22 +20,21 @@ export default function Home({ data }) {
   const {name, image, gender, location, origin, species, status } = data
 
   return (
-    <div className="  h-screen flex flex-col max-w-5xl items-center ">
+    <div className="flex  flex-col items-center justify-center h-screen   ">
       <Head>
-        <title>{name}</title>
+      <title>{name}</title>
         <meta name="description" content="The Rick and Morty all character" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="bg-red-500 max-w-5xl ">
-        <h1 >{name}</h1>
+      <main className=" max-w-7xl my-24 mx-auto">
+        
 
         <div >
-            <div >
-                <img src={image} alt={name} />
-            </div>
-
-            <div >
+        <h1 >{name}</h1>
+                <img src={image} alt={name} className="" />
+          
+          
                 <h2>Character Details</h2>
                 <ul>
                     <li><strong>Name:</strong> {name}</li>
@@ -46,7 +45,7 @@ export default function Home({ data }) {
                     <li><strong>Originally From:</strong> {origin?.name}</li>
                 </ul>
             </div>
-        </div>
+       
         <p >
           <Link href="/">
             <a> Back to HomePage</a>
