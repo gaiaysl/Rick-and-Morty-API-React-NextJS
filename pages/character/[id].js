@@ -20,14 +20,14 @@ export default function Home({ data }) {
   const {name, image, gender, location, origin, species, status } = data
 
   return (
-    <div >
+    <div className="  h-screen flex flex-col max-w-5xl items-center ">
       <Head>
         <title>{name}</title>
         <meta name="description" content="The Rick and Morty all character" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main >
+      <main className="bg-red-500 max-w-5xl ">
         <h1 >{name}</h1>
 
         <div >

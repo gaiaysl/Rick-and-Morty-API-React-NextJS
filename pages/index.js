@@ -73,7 +73,7 @@ export default function Home({ data }) {
 
   return (
     <Layout>
-    <div className="bg-slate-800">
+    <div className="bg-slate-800 ">
         <form  onSubmit={handleonSubmit}>
           <input
             type="search"
@@ -94,7 +94,7 @@ export default function Home({ data }) {
               <div key={id} className="relative my-4 mx-2 " >
                 <Link href="/character/[id]" as={`/character/${id}`}>
                   
-                  <div className= "  opacity-90 backdrop-blur-md shadow-2xl  h-80  rounded-xl flex flex-col items-center  ">
+                  <div className= "  opacity-90 backdrop-blur-md shadow-2xl  h-80 rounded-xl flex flex-col items-center  ">
                     <img
                     className='my-6 border-4 border-regal-green rounded-full  h-40 w-40' src={image} alt={`${name} Thumb`} />
                     <h2 className="text-white">
