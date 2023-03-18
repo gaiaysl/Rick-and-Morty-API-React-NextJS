@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+   darkMode:'class', // or 'media' or 'class'
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -10,6 +11,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'king': "url('/img/background-king.jpg')"
+       
+      },
       colors: {
         'regal-green': '#5DD02C',
       

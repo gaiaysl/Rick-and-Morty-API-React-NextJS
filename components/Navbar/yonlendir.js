@@ -6,18 +6,18 @@ import Link from "next/link"
 import DarkMode from "../DarkMode"
 export default function Yonlendir() {
   return (
-    <div className='flex flex-row justify-evenly shadow-2xl   px-4 py-4 h-20'>
-      <div className="flex flex-row justify-center items-center font-bold h-full gap-4">
+    <div className=' flex flex-row max-w-5xl shadow-2xl  py-4 h-20'>
+      <div className="flex flex-row justify-center  w-full font-bold h-full gap-4">
         <div>
         <Link href="/" >
           <Image src={logo} alt="logo" height={60} width={60}   />
         </Link>
       
         </div>
-        <h1 className="text-white py-4">Rick and Morty</h1>
+        <h1 className="dark:text-white py-4">Rick and Morty</h1>
        
       </div>
-      <ul className="text-white flex flex-row py-4 gap-x-6 mx-4 text-md font-semibold">
+      <ul className="dark:text-white flex flex-row py-4 gap-x-6 mx-4 text-md font-semibold">
             <li>HOME</li>
           
             <li>CHARACTERS</li>
