@@ -12,7 +12,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'king': "url('/img/background-king.jpg')"
+        'king': "url('/img/background-king.jpg')",
+        'character': "url('/img/background-character.jpg')"
        
       },
       colors: {

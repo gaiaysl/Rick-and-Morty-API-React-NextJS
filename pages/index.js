@@ -2,8 +2,12 @@
 import { useEffect, useState } from "react";
 import Layout from '../components/Layout/layout'
 import Link from 'next/link'
+import Search from "../components/Search.js/Search";
+
 
 const defaultEndOPoint = "https://rickandmortyapi.com/api/character";
+
+
 
 export async function getServerSideProps() {
   const res = await fetch(defaultEndOPoint);
@@ -16,8 +20,10 @@ export async function getServerSideProps() {
 }
 
 export default function Home({ data }) {
+ 
   const { info, results: defaultResults = [] } = data;
   const [results, updateResults] = useState(defaultResults);
+
   const [page, updatePage] = useState({
     ...info,
     current: defaultResults,
@@ -54,7 +60,7 @@ export default function Home({ data }) {
       };
     });
   }
-
+  
   function handleonSubmit(e) {
     e.preventDefault();
 
@@ -74,20 +80,19 @@ export default function Home({ data }) {
   return (
     <Layout>
     <div className=" bg-king  "  >
-        <form  onSubmit={handleonSubmit}>
+    <form  onSubmit={handleonSubmit}className="flex flex-col  ">
           <input
             type="search"
             name="query"
-           
+           placeholder="Search for a character"
             required
+            className="mt-4 shadow-2xl rounded-lg p-1 px-3 mx-auto  font-small opacity-90 backdrop-blur-2xl bg-gradient-to-tr from-blue-200 via-slate-200 dark:bg-slate-800 dark:from-neutral-600 dark:via-slate-800   "
           />
-          <button type="submit">
-            Search
-          </button>
+        
         </form>
-
-        <div className="   mx-auto max-w-6xl grid grid-cols-4 " >
-          {results.map((result) => {
+        <div className="  mx-auto max-w-6xl grid grid-cols-4 " >
+  
+          {results?.map((result) => {
             const { id, name, image, status, location } = result;
             return (
               // eslint-disable-next-line react/jsx-key
@@ -133,16 +138,23 @@ export default function Home({ data }) {
               );
             }
           })()}
+   
               </div>
+              
             );
           })}
-        </div>
-        <p>
-          <button onClick={handleLoadMore} >
+
+                   <p className="mb-4 ">
+                   
+          <button className="   bg-gradient-to-r from-teal-400 to-blue-500 hover:from-green500 hover:to-gray-200 text-white font-semibold px-4 py-2 rounded " onClick={handleLoadMore} >
             Load More
           </button>
-        </p>
+          </p>
         </div>
+    
+        </div>
+     
       </Layout>
+      
   );
 }

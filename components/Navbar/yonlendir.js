@@ -4,10 +4,14 @@ import logo from "../../public/pm-logo.png"
 import Link from "next/link"
 
 import DarkMode from "../DarkMode"
+
 export default function Yonlendir() {
+
   return (
-    <div className=' flex flex-row max-w-5xl shadow-2xl  py-4 h-20'>
-      <div className="flex flex-row justify-center  w-full font-bold h-full gap-4">
+    <div className=' flex flex-row  shadow-2xl max-w-5xl w-full  py-4 h-20'>
+     
+      
+      <div className="flex flex-row justify-center w-full   font-bold h-full gap-4">
         <div>
         <Link href="/" >
           <Image src={logo} alt="logo" height={60} width={60}   />
