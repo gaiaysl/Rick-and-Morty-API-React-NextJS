@@ -30,7 +30,7 @@ export default function Home({ data }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className=" max-w-5xl my-24 mx-auto border-2 opacity-90 backdrop-blur-2xl shadow-2xl   rounded-xl ">
+      <main className="my-24 mx-auto border-2 opacity-90 backdrop-blur-2xl shadow-2xl   rounded-xl ">
         
 
         <div className="" >
