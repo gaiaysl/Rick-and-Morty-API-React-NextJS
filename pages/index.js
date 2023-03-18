@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Layout from '../components/Layout/layout'
 import Link from 'next/link'
-import Search from "../components/Search.js/Search";
+
 
 
 const defaultEndOPoint = "https://rickandmortyapi.com/api/character";
