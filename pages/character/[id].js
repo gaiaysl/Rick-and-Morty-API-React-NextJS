@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Link from 'next/link'
 import Layout from "../../components/Layout/layout";
 
 
@@ -21,7 +20,7 @@ export default function Home({ data }) {
 
   return (
     <Layout>
-    <div className="flex  flex-col items-center justify-center bg-character   ">
+    <div className="flex  flex-col bg-character   ">
       <Head>
       <h2>Character Details</h2>
       <title>{name}</title>
@@ -29,16 +28,20 @@ export default function Home({ data }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="my-24 mx-auto border-2 opacity-90 backdrop-blur-2xl shadow-2xl   rounded-xl ">
+      <main className="my-20  px-6 py-2 mx-auto border-2 opacity-90 backdrop-blur-2xl shadow-2xl   rounded-xl ">
         
 
-        <div className="" >
-        <h1 >{name}</h1>
-                <img src={image} alt={name} className="" />
+        <div className="mx-6 " >
+        <div className="flex flex-col justify-center items-center  text-slate-800  my-3 ">
+        <h1 className="font-semibold mb-3" >{name}</h1>
+        <div className="h-72 w-80 rounded-lg">
+        <img src={image} alt={name} className="border-4 border-regal-green h-full w-full rounded-2xl" />
+        </div>
+               
           
-          
+                </div>
                 
-                <ul>
+                <ul className="flex flex-col justify-center mx-auto mt-2 text-slate-800 break-all w-80 ml-3">
                     <li><strong>Name:</strong> {name}</li>
                     <li><strong>Status:</strong> {status}</li>
                     <li><strong>Gender:</strong> {gender}</li>
@@ -49,9 +52,7 @@ export default function Home({ data }) {
             </div>
        
         <p >
-          <Link href="/">
-            <a> Back to HomePage</a>
-          </Link>
+         
         </p>
       </main>
     </div>

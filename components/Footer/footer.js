@@ -2,8 +2,8 @@
 
 export default function Footer() {
   return (
-    <div className="  flex flex-row justify-center items-center max-w-4xl  mx-auto  ">
-      <div className=" w-full flex flex-col   ">
+    <div className=" mx-auto px-24 dark:bg-gradient-to-tr dark:from-neutral-600 dark:via-slate-800  bg-gradient-to-tr from-blue-300 via-slate-400 opacity-90 backdrop-blur-2xl shadow-2xl  w-full  sticky top-0 z-10 backdrop-filter flex flex-row  justify-center items-center  ">
+      <div className="mb-3 mt-3  flex flex-col mx-auto px-7  ">
         <p>Design by Gaye Y. @ 2022</p>
         <p> My Github Profile:{" "}
           <a target="_blank" href="https://github.com/gaiaysl">
@@ -12,7 +12,7 @@ export default function Footer() {
         </p>
       </div>
 
-      <div className="w-full h-full  ">
+      <div className="mb-3 mt-3 mx-auto flex flex-col    ">
         <p>Powered by Next.js - React</p>
         <p>API Documentation:{" "}
           <a target="_blank" href="https://rickandmortyapi.com/">

@@ -90,22 +90,20 @@ export default function Home({ data }) {
           />
         
         </form>
-        <div className="  mx-auto max-w-6xl grid grid-cols-4 " >
+        <div className="  mx-auto max-w-4xl grid grid-cols-4 " >
   
           {results?.map((result) => {
             const { id, name, image, status, location } = result;
             return (
               // eslint-disable-next-line react/jsx-key
-              <div key={id} className="relative my-4 mx-2 " >
+              <div key={id} className="relative my-4 mx-1 " >
                 <Link href="/character/[id]" as={`/character/${id}`}>
                   
-                  <div className= "dark:bg-gradient-to-tr dark:from-neutral-600 dark:via-slate-800  bg-gradient-to-tr from-blue-300 via-slate-300 opacity-90 backdrop-blur-2xl shadow-2xl  h-80 rounded-xl flex flex-col items-center  ">
+                  <div className= "py-3 hover:scale-105 transition-all ease-in duration-400  dark:bg-gradient-to-tr dark:from-neutral-600 dark:via-slate-800  bg-gradient-to-tr from-blue-300 via-slate-300 opacity-90 backdrop-blur-2xl shadow-2xl px-6   h-80 rounded-xl flex flex-col items-center  ">
                     <img
-                    className='my-6 border-4 border-regal-green rounded-full  h-40 w-40' src={image} alt={`${name} Thumb`} />
-                    <h2 className="text-white">
-                      {name} <span >{status}</span>
-                    </h2>
-                    <p >
+                    className=' my-6 border-4 border-regal-green rounded-full  h-40 w-40' src={image} alt={`${name} Thumb`} />
+                
+                    <p className="ml-3 py-2" >
                       Last location: {location?.name}
                     </p>
                   </div>
@@ -115,7 +113,7 @@ export default function Home({ data }) {
             if (status === "Dead") {
               return (
                 <div
-                  className="bg-red-500 rounded-lg  px-3  font-medium absolute top-0 left-0 "
+                  className="bg-red-500 rounded-lg  px-3  font-medium absolute top-0 left-0  "
                 >
                   {status}
                 </div>
@@ -146,7 +144,7 @@ export default function Home({ data }) {
 
                    <p className="mb-4 ">
                    
-          <button className="bg-gradient-to-r from-teal-400 to-blue-500 hover:from-green500 hover:to-gray-200 text-white font-semibold px-4 py-2 rounded " onClick={handleLoadMore} >
+          <button className=" mx-2 px-4 bg-gradient-to-r from-teal-400 to-blue-500 hover:from-green500 hover:to-gray-200 text-white font-semibold  py-2 rounded " onClick={handleLoadMore} >
             Load More
           </button>
           </p>
