@@ -146,7 +146,7 @@ export default function Home({ data }) {
 
                    <p className="mb-4 ">
                    
-          <button className="   bg-gradient-to-r from-teal-400 to-blue-500 hover:from-green500 hover:to-gray-200 text-white font-semibold px-4 py-2 rounded " onClick={handleLoadMore} >
+          <button className="bg-gradient-to-r from-teal-400 to-blue-500 hover:from-green500 hover:to-gray-200 text-white font-semibold px-4 py-2 rounded " onClick={handleLoadMore} >
             Load More
           </button>
           </p>
