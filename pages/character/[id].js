@@ -23,7 +23,6 @@ export default function Home({ data }) {
     <Layout>
     <div className="flex  flex-col bg-character  ">
 
-<div></div>
       <main className="my-20 w-80 sm:w-96  px-6 py-2 mx-auto border-2 opacity-100 backdrop-blur-2xl shadow-2xl   rounded-xl ">
         
 
@@ -37,7 +36,7 @@ export default function Home({ data }) {
           
                 </div>
                 
-                <ul className="flex flex-col justify-center  mt-2 dark:text-white text-black break-all w-40 sm:w-64 ml-4">
+                <ul className="flex flex-col justify-center  mt-2 dark:text-white text-black break-all w-46 sm:w-64  sm:ml-4">
                     <li><strong >Name:</strong> {name}</li>
                     <li><strong>Status:</strong> {status}</li>
                     <li><strong>Gender:</strong> {gender}</li>
