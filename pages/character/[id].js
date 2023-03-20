@@ -1,7 +1,8 @@
-import Head from "next/head";
+
 import Layout from "../../components/Layout/layout";
+import Link from "next/link";
 
-
+import { AiOutlineArrowLeft } from 'react-icons/ai';
 const defaultEndOPoint = "https://rickandmortyapi.com/api/character";
 
 export async function getServerSideProps({ query }) {
@@ -20,21 +21,16 @@ export default function Home({ data }) {
 
   return (
     <Layout>
-    <div className="flex  flex-col bg-character   ">
-      <Head>
-      <h2>Character Details</h2>
-      <title>{name}</title>
-        <meta name="description" content="The Rick and Morty all character" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <div className="flex  flex-col bg-character  ">
 
-      <main className="my-20  px-6 py-2 mx-auto border-2 opacity-90 backdrop-blur-2xl shadow-2xl   rounded-xl ">
+
+      <main className="my-20 w-80 sm:w-92  px-6 py-2 mx-auto border-2 opacity-100 backdrop-blur-2xl shadow-2xl   rounded-xl ">
         
 
         <div className="mx-6 " >
         <div className="flex flex-col justify-center items-center  text-slate-800  my-3 ">
         <h1 className="font-semibold mb-3" >{name}</h1>
-        <div className="h-72 w-80 rounded-lg">
+        <div className="sm:h-72 sm:w-80 w-36 rounded-lg">
         <img src={image} alt={name} className="border-4 border-regal-green h-full w-full rounded-2xl" />
         </div>
                
@@ -51,9 +47,9 @@ export default function Home({ data }) {
                 </ul>
             </div>
        
-        <p >
-         
-        </p>
+        <Link href="/" >
+         <div  className="border-1 flex flex-row justify-center items-center cursor-pointer mt-3 mb-2 hover:transition-all hover:duration-75  hover:text-regal-green "><AiOutlineArrowLeft/> Home to Back</div>
+        </Link>
       </main>
     </div>
     </Layout>
