@@ -106,7 +106,7 @@ export default function Home({ data }) {
           />
         
         </form>
-        <div className="  mx-auto max-w-4xl  grid sm:grid-cols-4 grid-cols-2 " >
+        <div className="  mx-auto max-w-4xl  grid sm:grid-cols-4 grid-cols-1 " >
   
           {results?.map((result,index) => {
            
@@ -115,7 +115,7 @@ export default function Home({ data }) {
               <div key={index} className="relative my-4 mx-1 " >
                 <Link href="/character/[id]" as={`/character/${result.id}`}>
                   
-                  <div className= " cursor-pointer py-3 hover:scale-105 transition-all ease-in duration-400  dark:bg-gradient-to-tr dark:from-neutral-600 dark:via-slate-800  bg-gradient-to-tr from-blue-300 via-slate-300 opacity-100 backdrop-blur-2xl shadow-2xl sm:px-6 px-4  h-80  w-44 mx-auto sm:w-full justify-center rounded-xl flex flex-col items-center  ">
+                  <div className= " cursor-pointer py-3 hover:scale-105 transition-all ease-in duration-400  dark:bg-gradient-to-tr dark:from-neutral-600 dark:via-slate-800  bg-gradient-to-tr from-blue-300 via-slate-300 opacity-100 backdrop-blur-2xl shadow-2xl sm:px-6 px-4  sm:h-80 h-92  w-72 mx-auto sm:w-full justify-center rounded-xl flex flex-col items-center  ">
                  
                  
                   {(() => {
@@ -141,7 +141,7 @@ export default function Home({ data }) {
             }})()}
                     
               
-                    <p className="text-center -mt-3 text-slate-600 dark:text-black font-bold text-base">{result.name}</p>
+                    <p className="text-center -mt-3 text-white font-bold text-xl">{result.name}</p>
                    
                     <p className=" ml-3 py-2 text-slate-600 dark:text-white font-semibold" > Location: <span className="text-white text-sm font-semibold">{result.location?.name}</span>
                     </p> 
@@ -155,7 +155,7 @@ export default function Home({ data }) {
             if (result.status === "Dead") {
               return (
                 <div
-                  className="bg-red-500 rounded-lg ml-3 sm:ml-0 sm:px-3 px-2 cursor-pointer font-medium absolute top-0 left-0  "
+                  className="bg-red-500 rounded-lg ml-12 sm:ml-0 sm:px-3 px-2 cursor-pointer font-medium absolute top-0 left-0  "
                 >
                   {result.status}
                 </div>
@@ -164,7 +164,7 @@ export default function Home({ data }) {
             } else if (result.status === "Alive") {
               return (
                 <div
-                  className="bg-green-500 rounded-lg ml-3 sm:ml-0  sm:px-3 px-2 cursor-pointer  font-medium   absolute  top-0 left-0 "
+                  className="bg-green-500 rounded-lg ml-12 sm:ml-0  sm:px-3 px-2 cursor-pointer  font-medium   absolute  top-0 left-0 "
                 >
                   {result.status}
                 </div>
@@ -172,7 +172,7 @@ export default function Home({ data }) {
             } else {
               return (
                 <div
-                  className="bg-gray-500 rounded-lg sm:px-1 px-0 cursor-pointer  ml-3 sm:ml-0  absolute font-medium top-0 left-0 "
+                  className="bg-gray-500 rounded-lg sm:px-1 px-0 cursor-pointer  ml-12 sm:ml-0  absolute font-medium top-0 left-0 "
                 >
                   {result.status}
                 </div>

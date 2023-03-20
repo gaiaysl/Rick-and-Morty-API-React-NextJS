@@ -18,6 +18,8 @@ module.exports = {
       },
       colors: {
         'regal-green': '#5DD02C',
+        'regal-purple': '#61124C',
+
       
       },
     },
