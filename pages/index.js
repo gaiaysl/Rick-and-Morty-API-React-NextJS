@@ -23,7 +23,6 @@ export default function Home({ data }) {
  
   const { info, results: defaultResults = [] } = data;
   const [results, updateResults] = useState(defaultResults);
-
   const [page, updatePage] = useState({
     ...info,
     current: defaultResults,
@@ -77,35 +76,39 @@ export default function Home({ data }) {
     window.addEventListener("scroll", handleScroll);
   }, []);
 
-  function handleonSubmit(e) {
-    e.preventDefault();
+ 
 
-    const { currentTarget = {} } = e;
-    const fields = Array.from(currentTarget?.elements);
-    const fieldQuery = fields.find((field) => field.name === "query");
 
-    const value = fieldQuery.value || "";
+  function handleInputChange(e) {
+    const value = e.target.value;
     const endpoint = `https://rickandmortyapi.com/api/character/?name=${value}`;
-   
 
+   
     updatePage({
       current: endpoint,
+      value
     });
+    console.log(value)
+
   }
+
 
   return (
     <Layout>
     <div className=" bg-king  "  >
-    <form  onSubmit={handleonSubmit}className="flex flex-col  ">
+    <form className="flex flex-col  ">
           <input
             type="search"
-            name="query"
            placeholder="Search for a character"
             required
             className="mt-4 shadow-2xl rounded-lg p-1 px-3 mx-auto  font-small opacity-90  backdrop-blur-2xl bg-gradient-to-tr from-blue-200 via-slate-200 dark:bg-slate-800 dark:from-neutral-600 dark:via-slate-800   "
+           
+            onChange={handleInputChange}
           />
         
+         
         </form>
+       
         <div className="  mx-auto max-w-4xl  grid sm:grid-cols-4 grid-cols-1 " >
   
           {results?.map((result,index) => {
