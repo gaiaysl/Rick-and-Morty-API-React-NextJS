@@ -95,13 +95,14 @@ export default function Home({ data }) {
 
   return (
     <Layout>
-    <div className=" bg-king  "  >
-    <form className="flex flex-col  ">
+      <div className="bg-black w-full h-full bg-opacity-50 blur-none ">
+    <div className=" bg-king bg-no-repeat bg-center bg-fixed bg-cover  "  >
+    <form className="flex flex-col   ">
           <input
             type="search"
            placeholder="Search for a character"
             required
-            className="mt-4 shadow-2xl rounded-lg p-1 px-3 mx-auto  font-small opacity-90  backdrop-blur-2xl bg-gradient-to-tr from-blue-200 via-slate-200 dark:bg-slate-800 dark:from-neutral-600 dark:via-slate-800   "
+            className="mt-4 shadow-2xl rounded-lg p-1 px-3 mx-auto   font-small opacity-90  backdrop-blur-2xl bg-gradient-to-tr from-blue-200 via-slate-200 dark:bg-slate-800 dark:from-neutral-600 dark:via-slate-800   "
            
             onChange={handleInputChange}
           />
@@ -115,10 +116,10 @@ export default function Home({ data }) {
            
             return (
               // eslint-disable-next-line react/jsx-key
-              <div key={index} className="relative my-4 mx-1 " >
+              <div key={index} className="relative my-4 mx-1 hover:scale-105 transition-all ease-in duration-400 " >
                 <Link href="/character/[id]" as={`/character/${result.id}`}>
                   
-                  <div className= " cursor-pointer py-3 hover:scale-105 transition-all ease-in duration-400  dark:bg-gradient-to-tr dark:from-neutral-600 dark:via-slate-800  bg-gradient-to-tr from-blue-300 via-slate-300 opacity-100 backdrop-blur-2xl shadow-2xl sm:px-6 px-4  sm:h-80 h-92  w-72 mx-auto sm:w-full justify-center rounded-xl flex flex-col items-center  ">
+                  <div className= "  cursor-pointer py-3   dark:bg-gradient-to-tr dark:from-neutral-600 dark:via-slate-800  bg-gradient-to-tr from-blue-300 via-slate-300 opacity-100 backdrop-blur-2xl shadow-2xl sm:px-6 px-4  sm:h-80 h-92  w-72 mx-auto sm:w-full justify-center rounded-xl flex flex-col items-center  ">
                  
                  
                   {(() => {
@@ -194,8 +195,12 @@ export default function Home({ data }) {
 
    
         </div>
+        </div>
      
       </Layout>
       
   );
 }
+
+
+

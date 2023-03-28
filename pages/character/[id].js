@@ -21,7 +21,7 @@ export default function Home({ data }) {
 
   return (
     <Layout>
-    <div className="flex  flex-col bg-character  ">
+    <div className="flex  flex-col bg-character ">
 
       <main className="my-20 w-80 sm:w-96  px-6 py-2 mx-auto border-2 opacity-100 backdrop-blur-2xl shadow-2xl   rounded-xl ">
         
