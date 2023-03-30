@@ -18,7 +18,7 @@ export default function Navbar() {
            src={logo} alt="logo" height={60} width={70}   />
          
         </Link>
-        <a href="/" className="py-6 mx-1 font-semibold text-md sm:visible invisible"> Ricky and Morty</a>
+        <a href="/" className="py-6 mx-1 font-semibold text-md sm:visible invisible"> Rick and Morty</a>
        
       </div>
       <div className="  flex flex-row py-6  ">
